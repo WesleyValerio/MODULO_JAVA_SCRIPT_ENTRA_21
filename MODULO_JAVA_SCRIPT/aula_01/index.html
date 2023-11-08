@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste</title>
+</head>
+<body>
+    <button onclick="emiteAlerta()">Clique aqui</button>
+        <h1 onmouseleave="emiteError()">h1 - Emite error ao tirar o mouse da frase</h1>
+        <h2 onmouseover="emiteError()">h2 - Emite error ao colocar o mouse na frase</h2>
+        <h3 onmouseover="emiteWarn()">h3 - Emite alerta ao colocar o mouse na frase</h3>
+        <h1 onclick="alteraH1()">h1 click - Ao clicar na frase, altera o valor</h1>
+        <h4 onclick="alteraH1()" id="titulo">h4 - Ao clicar na frase, altera o valor</h4>
+        <h5 onclick="alteraH1()" class="destaque">h5 - Ao clicar na frase, altera o valor</h4>
+
+         <p>
+            <input type="number" onkeyup="calculaTabuada(this.value)">
+         </p>   
+
+            <div id = "tabuada">
+
+            </div>
+
+    <script type="text/javascript">
+        const nome = "Wesley";
+        const sobrenome = "Valério";
+        console.log(nome + " " + sobrenome);
+
+        function emiteAlerta () {
+            alert('Você clicou em um botão');
+            /* console.log("a função emiteAlerta foi acionada");
+            console.error("mensagens de erro");
+            console.warn("Um erro que não é grave");
+            console.info("mensagem de informação");
+            console.table([555,2222,555]); */
+        }
+
+        const emiteError = function (){
+            console.error ("Isso é uma função em uma variável");
+        }
+
+        const emiteWarn = function(){
+            console.warn ("Isso é uma função em uma variável");
+        }
+        
+
+        //pegando elementos via js
+        const alteraH1 = function(){
+            const h1 = document.querySelector('h1'); //elemento
+            h1.innerHTML = "Valor <br>alterado";
+            //const h4 = document.querySelector('#titulo'); //id
+            //h4.innerText = "Valor alterado";
+            //const h5 = document.querySelector('.destaque'); //class
+            //h5.innerText = "Valor alterado";
+    
+            
+        }
+
+        const calculaTabuada = function(valor){
+            const tabuada = document.querySelector("#tabuada");
+            tabuada.innerText = "";
+            for(i=0; i<=10; i++){
+                tabuada.innerHTML += `<p>${i} x ${valor} = ${i*valor}</p>`;
+            }
+        }
+         
+        function emiteAlerta (){
+            console.warn("A função foi sobrescrita");
+        }
+
+
+    </script>
+</body>
+</html>
